@@ -1,0 +1,27 @@
+{
+  "name": "dadleyy.com",
+  "version": "0.0.0",
+  "description": "my personal website",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dadleyy/dadleyy.git"
+  },
+  "author": "Danny Hadley <dadley@sizethreestudios.com>",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/dadleyy/dadleyy/issues"
+  },
+  "homepage": "https://github.com/dadleyy/dadleyy",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-clean": "^0.5.0",
+    "node-bourbon": "^1.2.3",
+    "node-neat": "^1.3.0",
+    "grunt-angular-templates": "^0.5.5",
+    "grunt-contrib-jade": "^0.12.0"
+  }
+}
