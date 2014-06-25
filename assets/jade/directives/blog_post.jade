@@ -1,0 +1,19 @@
+.content.blogpost(djh-scroll-fader)
+  .info.cf
+    .title.cf
+      a.btn.f.permalink.t.b-grad(href="http://dadleyy.com/blog/{= item.post_id =}")
+        i.icon.link
+      h5.f-reg.f {= item.post_title =}
+      h5.f-reg.date.up.r {= item.post_date | date:'longDate' =}
+
+    .cf
+      .description
+        .inner
+          .raw-content(ng-bind-html="safe()")
+
+    .cf.comments
+      .comment-zone(djh-commentzone, item="item")
+
+    .cf.social
+      a(href="https://twitter.com/share", data-url="http://dadleyy.com/blog/{= item.ID =}", data-text="{= item.post_title =}", data-via="Dadleyy")
+      .fb-like(data-href="http://dadleyy.com/blog/{= item.ID =}", data-width="450", data-layout="button_count", data-show-faces="true", data-send="false")

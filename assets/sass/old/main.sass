@@ -1,0 +1,839 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300)
+@import url(http://fonts.googleapis.com/css?family=Inconsolata)
+@import url("/fonts/playfair/stylesheet.css")
+@import url("/fonts/bebasneue/stylesheet.css")
+
+body, html
+  position: relative
+  width: 100%
+  height: 100%
+  background: white
+  color: #8c7b74
+  font: normal 16px / 1.5em "playfair_displayregular"
+  text-shadow: 1px 1px rgba(255, 255, 255, 0.15)
+
+.f-sc-black
+  font-family: 'playfair_display_scblack'
+
+.f-sc-bold
+  font-family: 'playfair_display_scbold'
+
+.f-reg
+  font-family: 'playfair_displayregular'
+
+.f-black
+  font-family: 'playfair_displayblack'
+
+.f-bold
+  font-family: 'playfair_displaybold'
+
+h1
+  font-size: 50px
+  line-height: 1.25em
+
+h2
+  font-size: 40px
+  line-height: 1.25em
+
+h3
+  font-size: 34px
+  line-height: 1.25em
+
+h4
+  font-size: 30px
+  line-height: 1.25em
+
+h5
+  font-size: 28px
+  line-height: 1.25em
+
+a
+  text-decoration: none
+  color: #444487
+
+p
+  line-height: 1.5
+
+.b-grad
+  background: -moz-linear-gradient(-225deg, whitesmoke 0%, #eeeeee 100%)
+  background: -webkit-linear-gradient(-225deg, whitesmoke 0%, #eeeeee 100%)
+  background: -o-linear-gradient(-225deg, whitesmoke 0%, #eeeeee 100%)
+  background: -ms-linear-gradient(-225deg, whitesmoke 0%, #eeeeee 100%)
+  background: linear-gradient(-225deg, whitesmoke 0%, #eeeeee 100%)
+
+button, .btn
+  padding: 4px 5px
+  vertical-align: middle
+  text-align: center
+  font-family: 'bebas_neueregular'
+  font-size: 18px
+  color: #616161
+  line-height: 20px
+  border-radius: 2px
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25), inset 0px 1px white
+
+code
+  padding: 10px
+  background: rgba(0, 0, 0, 0.05)
+  box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.25), 0px 0px 1px white
+  font-size: 14px
+  line-height: 1.5em
+  display: block
+  font-family: 'Inconsolata', sans-serif
+  font-weight: normal
+  &.inline
+    display: inline-block
+    padding: 2px 5px
+    margin: -2px 0 0 0
+
+button:hover, .btn:hover
+  color: #414141
+
+dt, dl, dd
+  margin: 0
+  padding: 0
+
+[data-djh-scroll-fader], [djh-scroll-fader]
+  opacity: 0.0
+
+[djh-view-buffer] > section
+  z-index: 90
+  &.error-page
+    z-index: 290
+
+.shadow
+  opacity: 0.0
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.45), inset 0px 0px 1px 1px rgba(255, 255, 255, 0.05)
+
+.up
+  text-transform: uppercase
+
+.page
+  position: absolute
+  left: 0px
+  top: 0px
+  width: 100%
+  height: 100%
+  min-height: 500px
+
+.track
+  position: relative
+  height: 100%
+  overflow: hidden
+  > .shadow
+    display: block
+    position: absolute
+    left: 0px
+    top: 0px
+    width: 100%
+    height: 200%
+    margin: -50% 0 0 0
+    z-index: 1000
+    pointer-events: none
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.35), inset 0px 0px 205px rgba(0, 0, 0, 0.05), 0px 0px 1px 1px rgba(255, 255, 255, 0.05)
+  .scroll
+    width: 140%
+    height: 100%
+    margin: 0 0 0 -20%
+    overflow-x: hidden
+    overflow-y: scroll
+    .view
+      margin: 0 auto
+      position: relative
+      height: auto
+      width: 960px
+    section
+      margin: 0 auto
+      position: relative
+      height: auto
+      width: 960px
+      &:after, &:before
+        background: white
+    .view, section
+      background: white
+    .shadow
+      content: ''
+      width: 0px
+      height: 0px
+      position: absolute
+      left: 50%
+      bottom: -55px
+    section
+      &:after, &:before
+        content: ''
+        display: block
+        position: absolute
+        width: 591px
+        height: 1px
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5)
+    .shadow
+      &:before, &:after
+        content: ''
+        display: block
+        position: absolute
+        width: 591px
+        height: 1px
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5)
+    section:last-child
+      &:after, &:before
+        display: none
+    .shadow
+      &:before
+        top: 0px
+        z-index: 99
+      &:after
+        top: 0px
+        z-index: 99
+        left: -580px
+        -webkit-transform: rotateZ(15deg)
+        -moz-transform: rotateZ(15deg)
+        -o-transform: rotateZ(15deg)
+        transform: rotateZ(15deg)
+      &:before
+        right: -580px
+        -webkit-transform: rotateZ(-15deg)
+        -moz-transform: rotateZ(-15deg)
+        -o-transform: rotateZ(-15deg)
+        transform: rotateZ(-15deg)
+    section
+      &:after, &:before
+        bottom: -10px
+        height: 240px
+        width: 980px
+        box-shadow: none
+        z-index: 100
+      &:after
+        left: -450px
+        -webkit-transform: rotateZ(15deg)
+        -moz-transform: rotateZ(15deg)
+        -o-transform: rotateZ(15deg)
+        transform: rotateZ(15deg)
+      &:before
+        right: -450px
+        -webkit-transform: rotateZ(-15deg)
+        -moz-transform: rotateZ(-15deg)
+        -o-transform: rotateZ(-15deg)
+        transform: rotateZ(-15deg)
+      &.title
+        height: 400px
+        text-align: center
+        z-index: 100
+        margin-top: -100px
+        .navigator
+          opacity: 0.0
+          padding: 5px 0 0 0
+          border-top: 1px solid rgba(0, 0, 0, 0.1)
+          margin: 5px auto 0
+          display: inline-block
+          pointer-events: none
+    &.locked section.title .navigator
+      opacity: 1.0
+      pointer-events: all
+    section.title
+      .navigator ul
+        list-style: none
+        height: 12px
+        li
+          display: block
+          font-size: 10px
+          line-height: 12px
+          padding: 0 5px
+          a
+            margin: 0
+            padding: 0
+            display: block
+      .content
+        padding-top: 400px
+        color: #584d49
+        width: 400px
+        margin: 0 auto
+      a.social
+        margin: 30px 0 0
+        width: 30px
+        height: 30px
+        display: block
+        opacity: 0.0
+        -webkit-transform: rotateZ(45deg)
+        -moz-transform: rotateZ(45deg)
+        -o-transform: rotateZ(45deg)
+        transform: rotateZ(45deg)
+        position: relative
+        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.52), 0px 0px 2px rgba(0, 0, 0, 0.25)
+        overflow: hidden
+        img
+          width: 16px
+          height: 16px
+          position: absolute
+          left: 50%
+          top: 50%
+          margin: -8px 0 0 -8px
+          display: block
+          -webkit-transform: rotateZ(-45deg)
+          -moz-transform: rotateZ(-45deg)
+          -o-transform: rotateZ(-45deg)
+          transform: rotateZ(-45deg)
+    &.locked section.title
+      a.social
+        opacity: 1.0
+      .content .branding .oh
+        width: 280px
+    section.title .content .branding .socials
+      overflow: hidden
+      height: 0px
+      width: 150px
+      margin: 0 auto
+    &.locked
+      section.title
+        .content
+          .branding .socials
+            height: 20px
+            padding-top: 10px
+            > div
+              width: 65px
+              &.twitter
+                width: 85px
+          padding-top: 390px
+        position: absolute
+        left: 0px
+        top: -290px
+        h3
+          padding-top: 5px
+          font-size: 20px
+          line-height: 24px
+        h5
+          font-size: 12px
+          line-height: 12px
+        p
+          opacity: 0.0
+          height: 0px
+          overflow: hidden
+      [djh-scroll-fader]
+        opacity: 1.0
+      .view
+        padding-top: 300px
+    section
+      .content
+        position: relative
+        z-index: 1000
+        margin: 0px auto
+      &.error-page
+        position: fixed
+        top: 0px
+        left: 0px
+        width: 100%
+        height: 100%
+        z-index: 200
+        text-align: center
+        > div.middle
+          margin: 100px auto
+          padding: 100px 0
+          position: relative
+          &:after, &:before
+            position: absolute
+            left: 0px
+            width: 100%
+            height: 5px
+            bottom: -5px
+            background-image: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-image: -moz-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-image: -o-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-image: linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-size: 5px 5px
+            background-repeat: repeat
+            display: block
+            content: ''
+          &:after
+            top: 0px
+        h1
+          font-size: 60px
+          text-transform: uppercase
+        h5
+          margin: 0 0 20px 0
+    .view section
+      background: whitesmoke
+      color: #454545
+      &:after, &:before
+        background: whitesmoke
+        color: #454545
+      .content
+        &.project .image-slider:after
+          background: whitesmoke
+          color: #454545
+        padding: 240px 100px 100px 100px
+        p
+          font-family: 'Yanone Kaffeesatz', sans-serif
+          font-size: 22px
+          font-weight: 300
+          line-height: 1.5em
+          color: #616766
+          margin-bottom: 10px
+        &.project
+          position: relative
+          .title
+            text-align: center
+            h2
+              text-transform: lowercase
+              padding: 0 0 5px 0
+              margin: 0 0 20px 0
+              position: relative
+              display: inline-block
+              font-family: 'bebas_neueregular'
+              font-size: 60px
+              &:after
+                content: ''
+                display: block
+                position: absolute
+                bottom: 0px
+                left: 0px
+                width: 100%
+                height: 1px
+                background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%)
+                background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(50%, rgba(0, 0, 0, 0.2)), color-stop(100%, rgba(0, 0, 0, 0)))
+                background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%)
+                background: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%)
+                background: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%)
+                background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%)
+          &:before
+            content: ''
+            position: absolute
+            top: -20px
+            right: -100px
+            width: 560px
+            height: 120px
+            -webkit-transform: rotateZ(-15deg)
+            -moz-transform: rotateZ(-15deg)
+            -o-transform: rotateZ(-15deg)
+            transform: rotateZ(-15deg)
+            background-image: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-image: -moz-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-image: -o-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-image: linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-size: 5px 5px
+            background-repeat: repeat
+            display: block
+          &:after
+            content: ''
+            position: absolute
+            top: -20px
+            right: -100px
+            width: 560px
+            height: 120px
+            -webkit-transform: rotateZ(-15deg)
+            -moz-transform: rotateZ(-15deg)
+            -o-transform: rotateZ(-15deg)
+            transform: rotateZ(-15deg)
+            background-image: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-image: -moz-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-image: -o-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-image: linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-size: 5px 5px
+            background-repeat: repeat
+            display: block
+            left: -100px
+            -webkit-transform: rotateZ(15deg)
+            -moz-transform: rotateZ(15deg)
+            -o-transform: rotateZ(15deg)
+            transform: rotateZ(15deg)
+            background-image: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-image: -moz-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-image: -o-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+            background-image: linear-gradient(-45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+          .toolchain
+            width: 25%
+          .description
+            width: 75%
+          .toolchain .inner
+            padding: 0 10px 0
+          .description
+            .inner
+              padding: 0 10px 0
+            p
+              line-height: 1.65
+            .preview_link
+              margin: 20px 0 0 0
+              padding: 5px 10px
+              border-radius: 2px
+              box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2)
+              display: inline-block
+              background: #d5cea6
+              background: #f2f2f2
+              background: -moz-linear-gradient(top, #f2f2f2 0%, #ededed 100%)
+              background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f2f2), color-stop(100%, #ededed))
+              background: -webkit-linear-gradient(top, #f2f2f2 0%, #ededed 100%)
+              background: -o-linear-gradient(top, #f2f2f2 0%, #ededed 100%)
+              background: -ms-linear-gradient(top, #f2f2f2 0%, #ededed 100%)
+              background: linear-gradient(to bottom, #f2f2f2 0%, #ededed 100%)
+          .toolchain
+            dl
+              padding: 0 0 10px 0
+            dt
+              border-bottom: 1px solid rgba(0, 0, 0, 0.15)
+              display: inline-block
+              padding: 0 5px 0 0
+            ul
+              list-style: none
+              width: 100%
+              display: block
+              li
+                width: 50%
+                display: block
+            .tools ul li
+              width: 100%
+      &:last-child .shadow
+        display: none
+      .content
+        &.project
+          .info
+            position: relative
+            z-index: 90
+          overflow: hidden
+          .image-slider
+            position: absolute
+            left: 0px
+            top: 0px
+            width: 100%
+            height: 100%
+            opacity: 1.0
+            background-size: cover
+            z-index: 80
+            &:after
+              content: ''
+              display: block
+              position: absolute
+              width: 105%
+              height: 300%
+              -webkit-transform: rotateZ(45deg)
+              -moz-transform: rotateZ(45deg)
+              -o-transform: rotateZ(45deg)
+              transform: rotateZ(45deg)
+              z-index: 81
+              left: -20%
+              top: -56%
+              box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5), inset 0px 1px 1px white
+            > div
+              width: 100%
+              height: 100%
+              background-position: -20px -20px
+              background-repeat: no-repeat
+              position: absolute
+              left: 0%
+              top: 0%
+        &.blogpost
+          .title
+            padding: 0 0 10px 0
+            margin: 0 0 10px 0
+            position: relative
+          .date
+            font-size: 14px
+            line-height: 35px
+            color: #717171
+        .bio!
+        .blurb
+          width: 244px
+          padding: 0 30px 0
+          text-align: start
+          &.f
+            padding: 0 30px 0 0
+          &.r
+            padding: 0 0 0 30px
+          h2
+            font-size: 32px
+            color: #605053
+            font-family: 'bebas_neueregular'
+            font-weight: normal
+            text-align: justify
+        .bio .bit
+          margin: 0 0 20px 0
+
+[djh-view-buffer]
+  overflow: hidden
+  opacity: 1.0
+  position: relative
+
+.track .scroll .view > [djh-scroll-fader]
+  width: 100%
+  height: 110%
+  display: block
+  position: absolute
+  left: 0px
+  top: -5%
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5)
+  pointer-events: none
+  z-index: 99
+
+[djh-view-buffer]
+  &.front
+    opacity: 1.0
+  &.back
+    opacity: 0.0
+
+.track .scroll .view section .content.blogpost
+  color: #616161
+  .comment-zone
+    padding: 10px 0
+    margin: 0 0 10px 0
+    position: relative
+    &:after, &:before
+      position: absolute
+      left: 0px
+      width: 100%
+      height: 5px
+      bottom: -5px
+      background-image: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+      background-image: -moz-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+      background-image: -o-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+      background-image: linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.13) 41%, rgba(0, 0, 0, 0.13) 60%, rgba(0, 0, 0, 0) 61%, rgba(0, 0, 0, 0) 100%)
+      background-size: 5px 5px
+      background-repeat: repeat
+      display: block
+      content: ''
+    &:after
+      top: 0px
+  .auth
+    display: block
+    margin: 0px auto
+    button
+      margin: 3px 0 0 0
+      padding: 4px 30px 4px 5px
+      position: relative
+      &:after
+        content: ''
+        display: block
+        width: 20px
+        height: 20px
+        position: absolute
+        right: 5px
+        top: 4px
+        background-image: url(/img/googleplus.svg)
+        background-size: 20px 20px
+  .comment-zone
+    .comment-list
+      padding: 20px 0
+    .comment-form
+      textarea
+        max-width: 740px
+        max-height: 100px
+        min-width: 740px
+        min-height: 100px
+        width: 740px
+        height: 280px
+        resize: none
+        font-family: 'playfair_displayregular'
+        font-size: 18px
+        font-weight: normal
+        color: #414141
+        padding: 10px
+        border-radius: 2px
+        background: rgba(0, 0, 0, 0.04)
+        box-shadow: 0px 0px 1px rgba(255, 255, 255, 0.25), inset 0px 0px 1px rgba(0, 0, 0, 0.55)
+      .actions
+        margin: 5px 0 0 0
+    .comment
+      margin-bottom: 10px
+      .user-info
+        margin-right: 10px
+        width: 50px
+        height: 50px
+        a
+          width: 50px
+          height: 50px
+          display: block
+          overflow: hidden
+          border-radius: 5px
+          img
+            display: block
+            outline: none
+            border: 0px
+      .comment-text
+        width: 75%
+  .permalink
+    width: 20px
+    height: 20px
+    margin: 4px 10px 0px -40px
+    opacity: 0.0
+  &:hover .permalink
+    opacity: 1.0
+    margin-left: -30px
+
+djh-csrf, [djh-csrf], [data-djh-csrf]
+  display: none
+
+.icon
+  display: inline-block
+  width: 20px
+  height: 20px
+  margin: 0 0 0
+  background-repeat: no-repeat
+  background-position: center center
+  background-size: 15px 15px
+  &.delete
+    background-image: url(/img/trash.svg)
+  &.link
+    background-image: url(/img/link.svg)
+
+@media (max-width: 960px)
+  .pw
+    width: 800px
+  .track .scroll
+    .view
+      width: 800px
+    section
+      width: 800px
+      &:after
+        left: -530px
+      &:before
+        right: -530px
+    .view section .content.project .image-slider:after
+      left: 0px
+      height: 200%
+      width: 162%
+
+@media (max-width: 900px)
+  .pw
+    width: 780px
+  .track .scroll
+    .view
+      width: 780px
+    section
+      width: 780px
+      &:after
+        left: -540px
+      &:before
+        right: -540px
+    .view section .content.project .image-slider:after
+      left: 0px
+      height: 200%
+      width: 162%
+
+@media (max-width: 800px)
+  .pw
+    width: 720px
+  .track .scroll
+    .view
+      width: 720px
+    section
+      width: 720px
+      &:after
+        left: -570px
+      &:before
+        right: -570px
+    .view section .content.project .image-slider:after
+      left: 0px
+      height: 200%
+      width: 162%
+
+@media (max-width: 720px)
+  .pw
+    width: 640px
+  .track .scroll
+    .view
+      width: 640px
+    section
+      width: 640px
+      &:after
+        left: -610px
+      &:before
+        right: -610px
+    .view section .content.project .image-slider:after
+      left: 0px
+      height: 200%
+      width: 162%
+
+@media (max-width: 680px)
+  .pw
+    width: 580px
+  .track .scroll
+    .view
+      width: 580px
+    section
+      width: 580px
+      &:after
+        left: -640px
+      &:before
+        right: -640px
+    .view section .content.project .image-slider:after
+      left: 0px
+      height: 200%
+      width: 162%
+
+@media (max-width: 568px)
+  .pw
+    width: 480px
+  .track .scroll
+    .view
+      width: 480px
+    section
+      width: 480px
+      &:after
+        left: -690px
+      &:before
+        right: -690px
+    .view section .content
+      &.project .image-slider:after
+        left: 0px
+        height: 200%
+        width: 200%
+      padding: 240px 20px 100px 20px
+      dt, p
+        font-size: 12px
+        line-height: 1.25em
+      &.project .title h2
+        font-size: 38px
+
+@media (max-width: 480px)
+  .pw
+    width: 360px
+  .track .scroll
+    .view
+      width: 360px
+    section
+      width: 360px
+      &:after
+        left: -750px
+      &:before
+        right: -750px
+    .view section .content
+      &.project .image-slider:after
+        left: 0px
+        height: 200%
+        width: 200%
+      padding: 240px 10px 100px 10px
+    section.title
+      .content
+        width: 360px
+      a.social
+        display: none
+      .oh
+        float: none
+        margin: 0px auto
+    &.locked section.title h5, section.title h5, &.locked section.title h3, section.title h3
+      font-size: 18px
+
+@media (max-width: 400px)
+  .pw
+    width: 280px
+  .track .scroll
+    .view
+      width: 280px
+    section
+      width: 280px
+      &:after
+        left: -790px
+      &:before
+        right: -790px
+    .view section .content
+      &.project .image-slider:after
+        left: 0px
+        height: 200%
+        width: 200%
+      padding: 240px 10px 100px 10px
+    section.title
+      .content
+        width: 280px
+      a.social
+        display: none
+      .oh
+        float: none
+        margin: 0px auto
+    &.locked section.title h5, section.title h5, &.locked section.title h3, section.title h3
+      font-size: 18px

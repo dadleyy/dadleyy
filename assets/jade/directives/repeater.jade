@@ -1,0 +1,6 @@
+section(ng-repeat="item in items", style="z-index:{= items.length - $index =}", djh-scroll-fader)
+  span.shadow(djh-scroll-fader)
+  .template-switch(ng-switch="template")
+    .project(djh-project, ng-switch-when="project", item="item")
+    .blogpost(djh-blogpost, ng-switch-when="blogpost", item="item")
+    .item(djh-item, ng-switch-default)

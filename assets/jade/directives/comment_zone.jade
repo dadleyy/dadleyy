@@ -1,0 +1,24 @@
+.comment-zone
+  .cf
+    h5 comments
+  
+  .cf.comment-list
+    .no-comments(ng-show="!item.comments.length")
+      p Bummer! No comments yet.
+    
+    .comment.cf(ng-repeat="comment in item.comments")
+      .user-info.f.cf(djh-tooltip="comment.user.name")
+        a(href="https://plus.google.com/u/0/{{ comment.user.plus_id }}", target="_blank")
+          img(src="{= comment.user.image_url =}", alt="")
+
+      .comment-text.f {= comment.comment =}
+      .r.cf(ng-show="isActiveUserComment(comment.user)")
+        button.btn.b-grad(ng-click="removeComment(comment)")
+          i.icon.delete
+
+  .auth-switch(ng-switch="authorized")
+    .true(ng-switch-when="true")
+      .comment-form(djh-comment-form, data-item="item")
+
+    .def(ng-switch-default)
+      .auth-button(djh-auth-btn)
