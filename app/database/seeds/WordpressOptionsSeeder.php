@@ -8,8 +8,8 @@ class WordpressOptionsSeeder extends Seeder {
     $roles = File::get(app_path().'/database/wp/user_roles.txt');
 
     $options = array(
-      'siteurl' => 'http://admin.lofti.local',
-      'home' => 'http://admin.lofti.local',
+      'siteurl' => 'http://local-admin.dadleyy.com',
+      'home' => 'http://local-admin.dadleyy.com',
       'blogname' => 'My Site',
       'blogdescription' => 'Just another WordPress site',
       'users_can_register' => 0,

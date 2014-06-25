@@ -12,6 +12,8 @@
 /public/img
 /assets/obj
 
+latest.tar.gz
+/wordpress
 composer.phar
 composer.lock
 public/*.min.js
