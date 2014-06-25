@@ -1,4 +1,4 @@
-djh.controller "BlogController", ["$scope", "$route", "$rootScope", "DiddelAPI", ($scope, $route, $rootScope, DiddelAPI) ->
+djh.controller "BlogController", ["$scope", "$route", "$rootScope", "DadleyAPI", ($scope, $route, $rootScope, DadleyAPI) ->
 
   socialRefresh = ->
     refresh = () ->
@@ -8,7 +8,6 @@ djh.controller "BlogController", ["$scope", "$route", "$rootScope", "DiddelAPI",
     setTimeout refresh, 600
 
   ready = ->
-    console.log $scope.posts
     $scope.posts.push single_post if single_post isnt false
     $rootScope.$broadcast "viewReady"
     socialRefresh()
@@ -17,7 +16,7 @@ djh.controller "BlogController", ["$scope", "$route", "$rootScope", "DiddelAPI",
     currentRoute = $route.current
     routeParams = currentRoute and currentRoute.params
     postId = routeParams and parseInt(routeParams.post_id, 10)
-    $scope.posts = DiddelAPI.BlogPost.query(null, ready)
+    $scope.posts = DadleyAPI.BlogPost.query(null, ready)
 
   $scope.posts = []
   single_post = false

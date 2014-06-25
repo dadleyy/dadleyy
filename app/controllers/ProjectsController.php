@@ -2,9 +2,9 @@
 
 class ProjectsController extends \BaseController {
 
-
   public function index() {
-    return Response::json();
+    $projects = BlogPost::all();
+    return Response::json($projects);
 	}
 	
 	public function show($project_id) {

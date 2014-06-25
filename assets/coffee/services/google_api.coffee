@@ -28,9 +28,6 @@ djh.service 'GoogleApi', ['$q', '$http', '$window', ($q, $http, $window) ->
       delete $window.auth
 
     prompt: () ->
-      if auth_promise != null
-        return false
-
       auth_promise = $q.defer()
 
       getAuthUrl().then (url) ->

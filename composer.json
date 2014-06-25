@@ -4,7 +4,7 @@
 	"keywords": ["framework", "laravel"],
 	"require": {
 		"laravel/framework": "4.0.*",
-		"alchemy/google-plus-api-client": "dev-master"
+    "google/apiclient": "1.0.*@beta"
 	},
 	"autoload": {
 		"classmap": [

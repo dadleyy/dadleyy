@@ -6,7 +6,8 @@ djh.directive "djhAuthBtn", ["GoogleApi", (GoogleApi) ->
     scope: { }
     link: (scope, element, attrs) ->
 
-      success = () ->
+      success = (data) ->
+        console.log data
 
       scope.launchAuth = ->
         GoogleApi.prompt().then success
