@@ -18,7 +18,7 @@ class WordpressTermTest extends TestCase {
     $this->assertTrue($taxonomy->taxonomy === 'category');
   }
 
-  public function testTaxonomyInsert() {
+    public function testTaxonomyInsert() {
     $taxonomy = new WordpressTermTaxonomy;
     $taxonomy->taxonomy = 'stuff';
     $taxonomy->save();
@@ -30,6 +30,21 @@ class WordpressTermTest extends TestCase {
       ->get();
 
     $this->assertTrue(count($select) === 2);
+  }
+
+  public function testTaxonomyEagerSelect() {
+    $cat = "category";
+    $new_term = new WordpressTerm;
+    $new_term->save();
+
+    $category_count = WordpressTerm::whereHas('taxonomy', function($q) {
+      $q->where('taxonomy', 'category');
+    })->count();
+
+    $term_count = count(WordpressTerm::all());
+    $this->assertTrue($term_count !== $category_count);
+
+    $new_term->delete();
   }
 
   public function tearDown() {

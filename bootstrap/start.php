@@ -1,7 +1,6 @@
 <?php
 
 $app = new Illuminate\Foundation\Application;
-$app->redirectIfTrailingSlash();
 
 $env = $app->detectEnvironment(function() {
 
