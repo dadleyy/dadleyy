@@ -3,7 +3,7 @@
 class ProjectsController extends \BaseController {
 
   public function index() {
-    $projects = BlogPost::all();
+    $projects = BlogPost::projects();
     return Response::json($projects);
 	}
 	

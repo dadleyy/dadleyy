@@ -17,6 +17,19 @@ class BlogPost extends Eloquent {
     return $ret;
   }
 
+  public static function projects() {
+    return static::byCategory('project');
+  }
+
+  private static function byCategory($category) {
+    return DB::table('wp_posts')
+      ->join('wp_term_relationships', 'wp_term_relationships.object_id', '=', 'wp_posts.ID')
+      ->join('wp_term_taxonomy', 'wp_term_taxonomy.term_taxonomy_id', '=', 'wp_term_relationships.term_taxonomy_id')
+      ->join('wp_terms', 'wp_term_taxonomy.term_id', '=', 'wp_terms.term_id')
+      ->where('wp_terms.slug', '=', $category)
+      ->get();
+  }
+
   public function author() {
     return $this->hasOne('WordpressUser', 'ID', 'post_author');
   }
