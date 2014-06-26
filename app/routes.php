@@ -21,8 +21,7 @@ Route::group(array('prefix' => 'auth'), function() {
   Route::controller('google', 'GoogleAuthController');
 });
 
-Route::any('/logout', 'AuthController@destroy' );
-Route::any('/debug', 'AuthController@debug' );
+Route::any('/debug', 'AdminController@debug' );
 
 // force home controller routing
 Route::any('/', function( ) { return Redirect::to('/home'); });
