@@ -3,7 +3,7 @@
 class ProjectsController extends \BaseController {
 
   public function index() {
-    $projects = BlogPost::projects();
+    $projects = LvpressPost::all();
     return Response::json($projects);
 	}
 	

@@ -7,7 +7,7 @@ class WordpressTermsSeeder extends Seeder {
 
     $default_terms = array('uncategorized', 'project', 'blogpost');
     foreach($default_terms as $index=>$term) {
-      $wp_term = new WordpressTerm;
+      $wp_term = new LvpressTerm;
       $wp_term->name = ucfirst($term);
       $wp_term->slug = $term;
       $wp_term->save();

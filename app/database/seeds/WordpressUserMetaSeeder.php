@@ -25,7 +25,7 @@ class WordpressUserMetaSeeder extends Seeder {
     );
 
     foreach($meta as $key=>$value) {
-      $um = new WordpressUserMeta;
+      $um = new LvpressUserMeta;
       $um->user_id = 1;
       $um->meta_key = $key;
       $um->meta_value = $value;

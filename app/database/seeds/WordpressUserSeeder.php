@@ -5,7 +5,7 @@ class WordpressUserSeeder extends Seeder {
   public function run() {
     $this->command->info('- Creating an admin wp_user');
 
-    $admin = new WordpressUser;
+    $admin = new LvpressUser;
     $admin->user_login = 'admin';
     $admin->user_pass = Hash::make('password');
     $admin->user_nicename = 'admin';

@@ -8,7 +8,7 @@ class WordpressPostSeeder extends Seeder {
     for($i = 0; $i < 4; $i++) {
       $post_content = File::get(app_path().'/database/wp/example_post-'.$i.'.txt');
       $date_now = new DateTime;
-      $post = new BlogPost;
+      $post = new LvpressPost;
       $post->post_author = 1;
       $post->post_date = $date_now;
       $post->post_date_gmt = $date_now;

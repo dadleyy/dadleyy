@@ -3,7 +3,7 @@
 class BlogController extends \BaseController {
 
   public function index() {
-    $posts = BlogPost::all();
+    $posts = LvpressPost::all();
     $out = array();
     foreach($posts as $post) {
       $out[] = array(

@@ -7,8 +7,7 @@ ClassLoader::addDirectories(array(
   app_path().'/errors'
 ));
 
-$logFile = 'log-'.php_sapi_name().'.txt';
-
+$logFile = 'dadleyy.log';
 Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 
 App::error(function(TokenException $exception, $code) {

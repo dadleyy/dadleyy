@@ -97,7 +97,7 @@ class WordpressOptionsSeeder extends Seeder {
     );
 
     foreach($options as $key=>$value) {
-      $opt = new WordpressOption;
+      $opt = new LvpressOption;
       $opt->autoload = 'yes';
       $opt->option_name = $key;
       $opt->option_value = $value;
