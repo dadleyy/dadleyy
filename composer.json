@@ -4,6 +4,7 @@
 	"keywords": ["framework", "laravel"],
 	"require": {
 		"laravel/framework": "4.1.*",
+		"dadleyy/lvpress": "1.0.*",
     "google/apiclient": "1.0.*@beta"
 	},
 	"autoload": {

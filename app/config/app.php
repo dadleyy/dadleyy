@@ -39,7 +39,7 @@ return array(
     'Illuminate\Validation\ValidationServiceProvider',
     'Illuminate\View\ViewServiceProvider',
     'Illuminate\Workbench\WorkbenchServiceProvider',
-    'Dadleyy\Lvpress\LvpressServiceProvider',
+    'Dadleyy\Lvpress\LvpressServiceProvider'
   ),
 
 	'manifest' => storage_path().'/meta',
