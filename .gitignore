@@ -8,8 +8,8 @@
 /public/css
 /public/error_log
 /public/views
+/public/img/*.png
 /public/templates
-/public/img
 /assets/obj
 
 latest.tar.gz
