@@ -1,13 +1,10 @@
-djh.controller "HomeController", ["$scope", "$rootScope", "DadleyAPI", ($scope, $rootScope, DadleyAPI) ->
+djh.controller "HomeController", ["$scope", "$rootScope", 'projects', ($scope, $rootScope, projects) ->
 
   loaded = ->
     $rootScope.$broadcast "viewReady"
 
-  updateItems = ->
-    $scope.items = DadleyAPI.Project.query null, loaded
+  $scope.items = projects
 
-  $scope.items = []
-
-  updateItems()
+  loaded()
 ]
 

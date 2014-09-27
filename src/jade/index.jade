@@ -1,0 +1,12 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title(djh-title)
+    link(href='/css/app.css' rel='stylesheet')
+  body
+    .view(ng-view)
+    if release
+      script(src="/js/app.min.js" type="text/javascript")
+    else
+      script(src="/js/app.js" type="text/javascript")

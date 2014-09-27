@@ -11,9 +11,11 @@
 /public/img/*.png
 /public/templates
 /assets/obj
+/assets/index.html
+/assets/app.conf
 
 latest.tar.gz
-/wordpress
+/obj
 composer.phar
 composer.lock
 public/*.min.js

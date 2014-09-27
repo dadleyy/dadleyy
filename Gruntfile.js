@@ -1,68 +1,36 @@
-var grunt = require('grunt');
+var grunt = require('grunt'),
+    dotenv = require('dotenv'),
+    btoa = require('btoa');
 
 module.exports = function() {
 
-  var task_packages = [
-    'grunt-contrib-sass',
-    'grunt-contrib-watch',
-    'grunt-contrib-coffee',
-    'grunt-contrib-concat',
-    'grunt-contrib-clean',
-    'grunt-contrib-jade',
-    'grunt-angular-templates'
+  dotenv.load();
+
+  grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-angular-templates');
+
+  var vendor_js = [
+    'bower_components/angular/angular.js',
+    'bower_components/angular-resource/angular-resource.js',
+    'bower_components/angular-route/angular-route.js'
   ];
-
-  for(var i = 0; i < task_packages.length; i++) {
-    grunt.loadNpmTasks(task_packages[i]);
-  }
-
-  function jadeFiles(srcdir, destdir, wildcard) {
-    var path = require('path'),
-        files = {};
-
-    grunt.file.expand({cwd: srcdir}, wildcard).forEach(function(relpath) {
-      destname = relpath.replace(/\.jade$/ig,'.html');
-      files[path.join(destdir, destname)] = path.join(srcdir, relpath);
-    });
-
-    return files;
-  }
 
   grunt.initConfig({
 
     clean: {
-      obj: ['assets/obj'],
-      dist: ['public/js', 'public/css']
-    },
-
-    sass: {
-      build: {
-        options: {
-          loadPath: require('node-neat').includePaths
-        },
-        files: {
-          'public/css/application.css': 'assets/sass/app.sass'
-        }
-      }
-    },
-
-    jade: {
-      debug: {
-        files: jadeFiles('assets/jade', 'assets/obj/html', '**/*.jade')
-      }
-    },
-
-    ngtemplates: {
-      build: {
-        src: ['assets/obj/html/directives/**/*.html', 'assets/obj/html/views/*.html'],
-        dest: 'assets/obj/js/templates.js',
-        options: {
-          module: 'djh',
-          url: function(url) { 
-            return url.replace(/^assets\/obj\/html\/(.*)\.html$/,'$1').replace(/\//g, '.');
-          }
-        }
-      }
+      all: [
+        'obj', 
+        'public/js', 
+        'public/css', 
+        'public/index.html',
+      ]
     },
 
     coffee: {
@@ -72,42 +40,131 @@ module.exports = function() {
           join: true
         },
         files: {
-          'assets/obj/js/app.js': ['assets/coffee/module.coffee', 'assets/coffee/**/*.coffee']
+          'obj/js/app.js': [
+            'src/coffee/module.coffee', 
+            'src/coffee/**/*.coffee'
+          ]
+        }
+      }
+    },
+
+    jade: {
+      index: {
+        files: {
+          'public/index.html': 'src/jade/index.jade'
+        }
+      },
+      release: {
+        options: { 
+          data: {
+            release: true
+          },
+        },
+        files: {
+          'public/index.html': 'src/jade/index.jade'
+        }
+      },
+      templates: {
+        files: [{
+          src: "**/*.jade",
+          dest: "obj/html",
+          expand: true,
+          ext: ".html",
+          cwd: "src/jade"
+        }]
+      }
+    },
+
+    ngtemplates: {
+      build: {
+        src: ['obj/html/directives/*.html', 'obj/html/views/*.html'],
+        dest: 'obj/js/templates.js',
+        options: {
+          module: 'djh',
+          url: function(url) { 
+            return url.replace(/^obj\/html\/(.*)\/(.*)\.html$/,'$1.$2');
+          }
         }
       }
     },
 
     concat: {
-      dist: {
-        src: [
-          'bower_components/angular/angular.js', 
-          'bower_components/angular-route/angular-route.js', 
-          'bower_components/angular-resource/angular-resource.js', 
-          'bower_components/d3/d3.js', 
-          'assets/obj/js/app.js', 
-          'assets/obj/js/templates.js'
-        ],
-        dest: 'public/js/application.js',
+      options: {
+        separator: ';',
       },
+      dist: {
+        src: vendor_js.concat([
+          'obj/js/app.js', 
+          'obj/js/**/*.js'
+        ]),
+        dest: 'public/js/app.js'
+      }
+    },
+
+    copy: {
+      svg: {
+        expand: true,
+        cwd: 'src/svg',
+        src: '**/*.svg',
+        dest: 'public/svg'
+      },
+      index: {
+        files: [{
+          expand: true,
+          cwd: 'obj/html',
+          src: 'index.html',
+          dest: 'public/'
+        }]
+      }
     },
 
     watch: {
-      style: {
-        files: ['assets/**/*.sass'],
-        tasks: ['sass']
+      svg: {
+        files: ['src/svg/*.svg'],
+        tasks: ['copy:svg']
       },
       scripts: {
-        files: ['assets/**/*.coffee'],
-        tasks: ['coffee', 'concat']
+        files: ['src/coffee/**/*.coffee'],
+        tasks: ['js']
       },
-      html: {
-        files: ['assets/**/*.jade'],
-        tasks: ['jade', 'ngtemplates', 'concat']
+      index: {
+        files: ['src/jade/index.jade'],
+        tasks: ['jade:index']
+      },
+      templates: {
+        files: ['src/jade/**/*.jade'],
+        tasks: ['js']
+      },
+      sass: {
+        files: ['src/sass/**/*.sass'],
+        tasks: ['sass']
+      }
+    },
+
+    sass: {
+      build: {
+        options: {
+          loadPath: require('node-neat').includePaths
+        },
+        files: {
+          'public/css/app.css': 'src/sass/app.sass'
+        }
+      }
+    },
+
+    uglify: {
+      release: {
+        files: {
+          'public/js/app.min.js': ['public/js/app.js']
+        }
       }
     }
 
   });
-
-  grunt.registerTask('default', ['clean','coffee','jade', 'ngtemplates','concat','sass']);
+  
+  grunt.registerTask('js', ['coffee', 'jade:templates', 'ngtemplates', 'concat']);
+  grunt.registerTask('css', ['sass']);
+  grunt.registerTask('default', ['css', 'coffee', 'js', 'css', 'copy']);
+  grunt.registerTask('release', ['default', 'jade:release', 'uglify']);
 
 }
