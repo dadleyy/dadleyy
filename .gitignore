@@ -10,9 +10,8 @@
 /public/views
 /public/img/*.png
 /public/templates
-/assets/obj
-/assets/index.html
-/assets/app.conf
+/public/index.html
+/public/app.conf
 
 latest.tar.gz
 /obj
