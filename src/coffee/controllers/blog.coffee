@@ -1,0 +1,2 @@
+djh.controller 'BlogController', [() ->
+]

@@ -1,9 +1,9 @@
 djh.config ['$routeProvider', ($routeProvider) ->
 
-  homeRoute =
-    templateUrl: 'views.home'
-    controller: 'HomeController'
-    title: "home"
+  projectRoute =
+    templateUrl: 'views.projects'
+    controller: 'ProjectController'
+    title: 'projects'
     resolve:
       projects: ['$http', '$q', 'URLS', ($http, $q, URLS) ->
         promise = $q.defer()
@@ -23,6 +23,6 @@ djh.config ['$routeProvider', ($routeProvider) ->
         promise.promise
       ]
 
-  $routeProvider.when '/home', homeRoute
+  $routeProvider.when '/projects', projectRoute
 
 ]

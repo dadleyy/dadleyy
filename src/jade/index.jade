@@ -2,9 +2,15 @@ doctype html
 html(lang="en")
   head
     meta(charset="utf-8")
-    title(djh-title)
+    title(d-title)
+    link(href='/vendor/devicons/css/devicons.css' rel='stylesheet')
+    link(href='/vendor/ionicons/css/ionicons.css' rel='stylesheet')
+    link(href='/vendor/zocial/css/zocial.css' rel='stylesheet')
+    link(href='/fonts/playfair/stylesheet.css' rel='stylesheet')
+    link(href='/fonts/bebasneue/stylesheet.css' rel='stylesheet')
     link(href='/css/app.css' rel='stylesheet')
   body
+    .header(d-header)
     .view(ng-view)
     if release
       script(src="/js/app.min.js" type="text/javascript")

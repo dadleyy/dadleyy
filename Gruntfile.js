@@ -102,6 +102,24 @@ module.exports = function() {
     },
 
     copy: {
+      devicons: {
+        expand: true,
+        cwd: 'bower_components/devicons',
+        src: ['css/*', 'fonts/*'],
+        dest: 'public/vendor/devicons'
+      },
+      ionicons: {
+        expand: true,
+        cwd: 'bower_components/ionicons',
+        src: ['css/*', 'fonts/*'],
+        dest: 'public/vendor/ionicons'
+      },
+      zocial: {
+        expand: true,
+        cwd: 'bower_components/zocial',
+        src: ['css/*'],
+        dest: 'public/vendor/zocial'
+      },
       svg: {
         expand: true,
         cwd: 'src/svg',

@@ -1,0 +1,84 @@
+.header
+  display: block
+  margin:
+    bottom: 20px
+
+  .curtain
+    position: fixed
+    background: rgba(255,255,255,0.95)
+    z-index: 2
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+
+  .locker
+    padding: 10px 0
+
+  .inner
+    +outer-container
+    +clearfix
+    position: relative
+    z-index: 3
+    text-align: center
+    padding:
+      top: 200px
+
+  &.locked
+    padding: 
+      top: 72px 
+
+    .locker
+      position: fixed
+      top: 0
+      width: 100%
+      background: white
+      box-shadow: 0px 1px 0px rgba(0,0,0,0.25)
+
+  &.ready
+    
+    .inner
+      +transition(padding 500ms ease)
+      padding:
+        top: 0px
+
+    .curtain
+      opacity: 0.0
+      height: 0
+
+  .spinner
+    +transition(opacity 2s ease)
+    opacity: 1.0
+ 
+  &.loaded .spinner
+    opacity: 0.0
+
+  .left-container
+    float: left
+    width: 20%
+
+    .link
+      float: right
+      margin-left: 10px
+
+  .right-container
+    float: right
+    width: 20%
+
+    .link
+      float: left
+      margin-right: 10px
+
+  .left-container,
+  .right-container
+    +clearfix
+    .link
+      margin-top: 10px
+
+  .mid-container
+    overflow: hidden
+    height: auto
+
+  h2.name
+    font-size: 1.8em
+    line-height: 2em

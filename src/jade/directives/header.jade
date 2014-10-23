@@ -1,0 +1,22 @@
+.header(ng-class="{loading: stage > 0, ready: stage === 0, loaded: stage < 2, locked: locked}")
+  .curtain
+  .locker
+    .inner
+      .left-container
+        .github.link
+          a.icon.z.github(href="https://github.com/dadleyy" target="_blank")
+        .npm.link
+          a.icon.d.npm(href="https://www.npmjs.org/~dadleyy" target="_blank")
+      .right-container
+        .twitter.link
+          a.icon.z.twitter(href="https://twitter.com/dadleyy" target="_blank")
+        .email.link
+          a.icon.email(href="mailto:danny@dadleyy.com" target="_blank")
+      .mid-container
+        .name
+          h2.name Danny Hadley
+        .loader(ng-if="stage > 0")
+          .spinner(d-spinner)
+        .nav(ng-if="stage === 0")
+          a.icon.blog(href="/blog")
+          a.icon.projects(href="/projects")
