@@ -3,7 +3,7 @@ djh.config ['$routeProvider', ($routeProvider) ->
   blogRoute =
     templateUrl: 'views.blog'
     controller: 'BlogController'
-    title: 'blog'
+    title: 'thoughts'
     resolve:
       posts: ['$http', '$q', 'URLS', ($http, $q, URLS) ->
         promise = $q.defer()

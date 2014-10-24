@@ -14,7 +14,12 @@ djh.directive 'dHeader', ['$rootScope', '$timeout', '$window', ($rootScope, $tim
       end = () ->
         $scope.stage = 0
 
-      finish = () ->
+      finish = (evt, route_info) ->
+        if route_info.$$route
+          $scope.current = route_info.$$route.title
+        else
+          $scope.current = false
+
         $scope.stage--
         $timeout end, 2000
 

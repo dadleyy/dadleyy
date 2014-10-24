@@ -1,5 +1,5 @@
 body
-  font-family: 'playfair_displayregular'
+  font-family: $font-regular
   font-weight: normal
   color: $dark-grey
 
@@ -9,16 +9,19 @@ a
   color: $link-color
 
   &:hover
-    color: darken($link-color, 10)
+    color: lighten($link-color, 10)
+
+em
+  font-style: normal
+
+.serif
+  font-family: $font-serif
 
 .bold
-  font-family: 'playfair_displaybold'
+  font-family: $font-bold
 
-.scblack
-  font-family: 'playfair_display_scblack'
+.heavy
+  font-family: $font-heavy
 
-.scbold
-  font-family: 'playfair_display_scbold'
-
-.black
-  font-family: 'playfair_displayblack'
+.light
+  font-family: $font-light

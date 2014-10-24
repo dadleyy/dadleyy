@@ -1,4 +1,10 @@
-.project
-  .title-container
-    h2 {{project.title}}
-  .content-container(ng-bind-html="content()")
+.project()
+  .video-backdrop(ng-if="video_url")
+    .project-video(d-video src="video_url")
+  .project-inner
+    .title-container
+      h3.project-date {{project.date | date:'MMM yy'}}'
+      h2.project-title {{project.title}}
+        span.url-link(ng-if="project_url")
+          a.icon.link(href="{{project_url}}" title="{{project_url.title}}" target="_blank")
+    .content-container.serif(ng-bind-html="content()")

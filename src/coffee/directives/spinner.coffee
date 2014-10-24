@@ -91,11 +91,15 @@ djh.directive 'dSpinner', ['Loop', 'SvgUtils', (Loop, SvgUtils) ->
           fill: colorFlux(dt)
 
       start = () ->
+        $element.css
+          display: 'block'
+
         if !playing
           playing = true
           loop_id = Loop.add update
 
       stop = () ->
+        playing = false
         Loop.remove loop_id
         $element.css
           display: "none"
@@ -105,6 +109,8 @@ djh.directive 'dSpinner', ['Loop', 'SvgUtils', (Loop, SvgUtils) ->
       $element.append svg.element
 
       $scope.$watch 'hidden', toggle
+      $scope.$on 'stop_spin', stop
+      $scope.$on 'start_spin', stop
 
       if $attrs['stopOn']
         $scope.$on $attrs['stopOn'], stop

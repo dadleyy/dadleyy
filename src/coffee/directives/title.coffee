@@ -8,7 +8,10 @@ djh.directive 'dTitle', ['$rootScope', ($rootScope) ->
     restrict: 'A'
     link: ($scope, $element, $attrs) ->
       update = (evt, route) ->
-        route_title = route.$$route.title || default_title
+        if route.$$route
+          route_title = route.$$route.title || default_title
+        else
+          route_title = default_title
         $element.text [title_base, route_title].join(' | ')
 
       $rootScope.$on '$routeChangeSuccess', update
