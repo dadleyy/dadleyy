@@ -110,6 +110,9 @@
     .content
       +transition(opacity 400ms ease)
       opacity: 0.0
+      max-height: 300px
+      overflow-y: scroll
+      position: relative
 
     h1, h2
       font-size: 18px
@@ -132,6 +135,8 @@
     .content-container
       .video-backdrop
         opacity: 0.1
+        z-index: 1
 
       .content
         opacity: 1.0
+        z-index: 2

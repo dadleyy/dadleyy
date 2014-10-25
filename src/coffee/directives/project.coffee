@@ -14,6 +14,10 @@ djh.directive 'dProject', ['$sce', 'TagParser', ($sce, TagParser) ->
 
       $scope.toggle = () ->
         $scope.open = !$scope.open
+        if $scope.open
+          $scope.$broadcast 'video_stop'
+        else
+          $scope.$broadcast 'video_start'
 
       do () =>
         update = (video_url) ->

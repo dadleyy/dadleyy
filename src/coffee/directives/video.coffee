@@ -32,9 +32,11 @@ djh.directive 'dVideo', ['Loop', (Loop) ->
 
       start = () ->
         video_el.play()
+        loop_id = Loop.add update
 
       stop = () ->
-        video_el.stop()
+        video_el.pause()
+        Loop.remove loop_id
 
       video_el.src = video_url
       video_el.addEventListener 'play', update
