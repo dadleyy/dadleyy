@@ -1,0 +1,43 @@
+angular.module('djh').run(['$templateCache', function($templateCache) {
+  'use strict';
+
+  $templateCache.put('directives.auth_button',
+    "<div class=\"auth cf\"><button ng-click=\"launchAuth()\" class=\"auth b-grad btn f\">login with</button></div>"
+  );
+
+
+  $templateCache.put('directives.blog_post',
+    "<div djh-scroll-fader=\"djh-scroll-fader\" class=\"content blogpost\"><div class=\"info cf\"><div class=\"title cf\"><a href=\"http://dadleyy.com/blog/{= item.ID =}\" class=\"btn f permalink t b-grad\"><i class=\"icon link\"></i></a><h5 class=\"f-reg f\">{= item.post_title =}</h5><h5 class=\"f-reg date up r\">{= item.post_date | date:'longDate' =}</h5></div><div class=\"cf\"><div class=\"description\"><div class=\"inner\"><div ng-bind-html=\"safe()\" class=\"raw-content\"></div></div></div></div><div class=\"cf comments\"><div djh-commentzone=\"djh-commentzone\" item=\"item\" class=\"comment-zone\"></div></div><div class=\"cf social\"><a href=\"https://twitter.com/share\" data-url=\"http://dadleyy.com/blog/{= item.ID =}\" data-text=\"{= item.post_title =}\" data-via=\"Dadleyy\"></a><div data-href=\"http://dadleyy.com/blog/{= item.ID =}\" data-width=\"450\" data-layout=\"button_count\" data-show-faces=\"true\" data-send=\"false\" class=\"fb-like\"></div></div></div></div>"
+  );
+
+
+  $templateCache.put('directives.comment_zone',
+    "<div class=\"comment-zone\"><div class=\"cf\"><h5>comments</h5></div><div class=\"cf comment-list\"><div ng-show=\"!item.comments.length\" class=\"no-comments\"><p>Bummer! No comments yet.</p></div><div ng-repeat=\"comment in item.comments\" class=\"comment cf\"><div djh-tooltip=\"comment.user.name\" class=\"user-info f cf\"><a href=\"https://plus.google.com/u/0/{{ comment.user.plus_id }}\" target=\"_blank\"><img src=\"{= comment.user.image_url =}\" alt=\"\"/></a></div><div class=\"comment-text f\">{= comment.comment =}</div><div ng-show=\"isActiveUserComment(comment.user)\" class=\"r cf\"><button ng-click=\"removeComment(comment)\" class=\"btn b-grad\"><i class=\"icon delete\"></i></button></div></div></div><div ng-switch=\"authorized\" class=\"auth-switch\"><div ng-switch-when=\"true\" class=\"true\"><div djh-comment-form=\"djh-comment-form\" data-item=\"item\" class=\"comment-form\"></div></div><div ng-switch-default=\"ng-switch-default\" class=\"def\"><div djh-auth-btn=\"djh-auth-btn\" class=\"auth-button\"></div></div></div></div>"
+  );
+
+
+  $templateCache.put('directives.project',
+    "<div djh-scroll-fader=\"djh-scroll-fader\" class=\"content project\"><div class=\"image-slider\"><div ng-repeat=\"thumb in item.thumbs\" style=\"background-image:url({{ thumb }})\" class=\"thumb\"></div></div><div class=\"info cf\"><div class=\"title\"><h2 class=\"f-bold\">{= item.post_title =}</h2></div><div class=\"cf\"><div class=\"f description\"><div class=\"inner\"><p ng-bind-html=\"safe()\"></p><a href=\"{= item.link =}\" title=\"\" ng-show=\"item.live\" class=\"preview_link b-grad\">see it</a></div></div><div class=\"f toolchain\"><div class=\"inner\"><dl ng-hide=\"!item.framework\"><d class=\"f-bold\">Framework</d><dd><p>{= item.framework =}</p></dd></dl><dl ng-hide=\"!item.languages\"><dt class=\"f-bold\">\" Languages</dt><dd><ul class=\"cf\"><li ng-repeat=\"language in item.languages\" class=\"f\"><p>{= language =}</p></li></ul></dd></dl><dl ng-hide=\"!item.apis\"><dt class=\"f-bold\">Apis</dt><dd><ul class=\"cf\"><li ng-repeat=\"api in item.apis\" class=\"f\"><p>{= api =}</p></li></ul></dd></dl><dl ng-hide=\"!item.tools\" class=\"tools\"><dt class=\"f-bold\">Tools</dt><dd><ul class=\"cf\"><li ng-repeat=\"tool in item.tools\"><p>{= tool =}</p></li></ul></dd></dl></div></div></div></div></div>"
+  );
+
+
+  $templateCache.put('directives.repeater',
+    "<section ng-repeat=\"item in items\" style=\"z-index:{= items.length - $index =}\" djh-scroll-fader=\"djh-scroll-fader\"><span djh-scroll-fader=\"djh-scroll-fader\" class=\"shadow\"></span><div ng-switch=\"template\" class=\"template-switch\"><div djh-project=\"djh-project\" ng-switch-when=\"project\" item=\"item\" class=\"project\"></div><div djh-blogpost=\"djh-blogpost\" ng-switch-when=\"blogpost\" item=\"item\" class=\"blogpost\"></div><div djh-item=\"djh-item\" ng-switch-default=\"ng-switch-default\" class=\"item\"></div></div></section>"
+  );
+
+
+  $templateCache.put('views.about',
+    "<section djh-scroll-fader=\"djh-scroll-fader\"><span djh-scroll-fader=\"djh-scroll-fader\" class=\"shadow\"></span><div djh-scroll-fader=\"djh-scroll-fader\" class=\"content blogpost\"><div class=\"cf bio\"><div class=\"cf bit\"><div class=\"f blurb\"><h2>I've been in love with making things since I was a kid</h2></div><p>When I was a younger, I was pretty big into legos. They were my go-to source of entertainment, and I used to build things with them all the time. Whether it was my birthday, christmas, or some random trip to the toy store, they were in my sights. I used to spend hours following the instructions and putting together all the parts that made up a ship or whatever. It's safe to say my lego collection has seen better days, and I can't say I've touched a lego in the last... 5 years, but I've never been able to break that fascination with seeing something come to life piece by piece.</p></div><div class=\"cf bit\"><div class=\"r blurb\"><h2>The wonderfully wide world of software</h2></div><p>Around when it was time to start thinking of colleges and what path I wanted to choose for my career, I had become quite a \"fanboy\" of the halo franchise. When the final game in the trilogy came out, it wasn't an option for me <em>not</em> to buy the \"legendary\" edition. One of the cool things that was included in that package was some behind the scenes videos of the \"making of\" halo, and some of the awesome culture the guys over at <a href=\"http://bungie.net\" title=\"\" target=\"_blank\">bungie</a> had cultivated. Well parents, I will never condemn video games because after watching those videos, I had decided that I wanted to be a programmer. Just seeing the guys and gals' over at their studio work together and collaborate on something that was so captivating to me and my <a href=\"https://maps.google.com/?q=Webwood%20Circle,%20Greece,%20NY%2014626\" target=\"_blank\">neighborhood</a> friends made me want to be a part of it and build something of my own. So, as a young man on his way out of his high school career, I had fallen in love with a path that I was destined to make a career.</p></div><div class=\"cf bit\"><div class=\"f blurb\"><h2>The journey through college, and into the beyond</h2></div><p>In the spring of 2013 I graduated from <a href=\"http://www.rit.edu/\" target=\"_blank\">Rochester Institute of Technology</a> with a Bachelors of Science in Game Design and Development and a minor in Web Development. My time at the college was something I will always cherish, both as a social rumspringa and a professional rocket ship. Having not known much about programming and software development prior to attending the college, I am absolutely satisfied at the level which the curriculum offered there had prepared me for graduation. In their later years at the college, students in my program were required to take 3 quarters of a co-op with a company to be exposed to the \"real world\". These blocks were extremely beneficial, and I came back to school with a fundamental understanding of web application development and design patterns. When I returned for the last 2 quarters of my senior year, I had started freelancing for <a href=\"http://36creative.com\" target=\"_blank\">36Creative</a> as a web developer and front-end engineer. Not only did I love this because of the obvious financial benefits of having a few extra dollars on the weekend, but it made for a great synergy between what I was learning in the classroom and what I was building; having assignments from a teacher is one level of responsibility, having a professional deadline is another.</p><p>Leaving college was just as hard as it was exciting. It is always bittersweet to leave a time in your life that had become to play such a defining role. Since then, I have been working with tons of new web technologies and have still loved every minute of it.</p></div></div></div></section>"
+  );
+
+
+  $templateCache.put('views.blog',
+    "<div class=\"blog\"><div djh-repeater=\"djh-repeater\" items=\"posts\" item-template=\"blogpost\" class=\"repeater\"></div></div>"
+  );
+
+
+  $templateCache.put('views.home',
+    "<div djh-repeater=\"djh-repeater\" items=\"items\" item-template=\"project\" class=\"repeater\"></div>"
+  );
+
+}]);

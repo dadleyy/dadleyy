@@ -1,0 +1,21 @@
+.header(ng-class="{loading: stage > 0, ready: stage === 0, loaded: stage < 2, locked: locked}")
+  .curtain
+  .locker
+    .right-container
+      .twitter.link
+        a.icon.z.twitter(href="https://twitter.com/dadleyy" target="_blank")
+      .email.link
+        a.icon.email(href="mailto:danny@dadleyy.com" target="_blank")
+      .github.link
+        a.icon.z.github(href="https://github.com/dadleyy" target="_blank")
+      .npm.link
+        a.icon.d.npm(href="https://www.npmjs.org/~dadleyy" target="_blank")
+    .main-container
+      .loader(ng-class="{showing: stage > 0}")
+        .spinner(d-spinner width="22" height="22" hidden="stage === 0")
+      .name
+        h2.name-guts.light DannyHadley
+      .nav(ng-if="stage === 0")
+        a.blog(href="/blog" ng-class="{active: current === 'thoughts'}") thoughts
+        a.projects(href="/projects" ng-class="{active: current === 'projects'}") projects
+

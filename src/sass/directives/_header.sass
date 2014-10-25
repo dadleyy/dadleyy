@@ -1,0 +1,92 @@
+.header
+  +clearfix
+  position: relative
+
+  .curtain
+    position: fixed
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    z-index: 100
+    opacity: 0.0
+    background: lighten(black, 15)
+
+  &.ready
+    .curtain
+      display: none
+
+  &.loading
+    
+    .curtain
+      opacity: 0.95
+
+  .name-guts
+    font-size: 40px
+
+  .locker
+    +outer-container
+    position: relative
+    z-index: 101
+    padding: 10px 0
+
+  .right-container
+    +clearfix
+    float: right
+
+    .link
+      float: right
+      margin: 0 0 0 10px
+
+  .main-container
+    +clearfix
+    overflow: hidden
+    height: auto
+
+  .icon:after,
+  .icon.z:after,
+  .icon.d:after
+    font-size: 18px
+    line-height: 25px
+
+  .icon.twitter:after
+    font-size: 14px
+ 
+
+  .nav,
+  .name,
+  .loader
+    float: left
+
+  .nav
+    +clearfix
+    margin:
+      left: 10px
+  
+    a[href]
+      +transition(all 500ms ease)
+      float: left
+      display: block
+      line-height: 40px 
+      margin: 0 5px 0 0
+      opacity: 0.7
+
+      &.active,
+      &:hover
+        opacity: 1.0
+
+      &.active
+        color: lighten($link-color, 10)
+    
+
+  .loader
+    +transition(all 200ms ease)
+    opacity: 0
+    width: 0px
+    margin-right: 0px
+    margin: 10px 0 0 0
+
+    &.showing
+      width: 25px
+      opacity: 1.0
+      margin-right: 10px

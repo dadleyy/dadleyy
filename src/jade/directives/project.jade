@@ -1,0 +1,17 @@
+.project(ng-class="{viewing: open}")
+  .project-inner
+    .title-container
+      h3.project-date {{project.date | date:'MMM yy'}}'
+      h2.project-title {{project.title}}
+        span.url-link(ng-if="project_url")
+          a.icon.link(href="{{project_url}}" title="{{project_url.title}}" target="_blank")
+    .content-container.serif
+      .video-backdrop(ng-if="video_url")
+        .project-video(d-video src="video_url")
+      .view-controls
+        ul.controls
+          li
+            button.control.bold(ng-click="toggle()")
+              .span.closer() close
+              .span.opener() more
+      .content(ng-bind-html="content()")

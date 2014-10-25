@@ -10,10 +10,12 @@
 /public/views
 /public/img/*.png
 /public/templates
-/assets/obj
+/public/index.html
+/public/vendor
+/public/app.conf
 
 latest.tar.gz
-/wordpress
+/obj
 composer.phar
 composer.lock
 public/*.min.js
