@@ -1,7 +1,7 @@
-djh.directive 'dTitle', ['$rootScope', ($rootScope) ->
+djh.directive 'dTitle', ['$rootScope', 'Analytics', ($rootScope, Analytics) ->
 
-  default_title = "engineer"
-  title_base = "danny hadley"
+  default_title = "danny hadley"
+  title_base = "software"
 
   dTitle =
     replace: false
@@ -10,6 +10,7 @@ djh.directive 'dTitle', ['$rootScope', ($rootScope) ->
       update = (evt, route) ->
         if route.$$route
           route_title = route.$$route.title || default_title
+          Analytics.track route.$$route.originalPath
         else
           route_title = default_title
         $element.text [title_base, route_title].join(' | ')

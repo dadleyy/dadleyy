@@ -12,6 +12,9 @@ djh.directive 'dProject', ['$sce', 'TagParser', ($sce, TagParser) ->
       $scope.content = () ->
         $sce.trustAsHtml $scope.project.content
 
+      $scope.toggle = () ->
+        $scope.open = !$scope.open
+
       do () =>
         update = (video_url) ->
           $scope.video_url = video_url

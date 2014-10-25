@@ -19,7 +19,8 @@ module.exports = function() {
   var vendor_js = [
     'bower_components/angular/angular.js',
     'bower_components/angular-resource/angular-resource.js',
-    'bower_components/angular-route/angular-route.js'
+    'bower_components/angular-route/angular-route.js',
+    'bower_components/analytics/index.js'
   ];
 
   grunt.initConfig({

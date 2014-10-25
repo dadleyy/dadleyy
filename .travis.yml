@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- '0.10'
+install:
+- gem install sass
+- gem install bourbon
+- gem install neat
+- npm install bower -g
+- npm install grunt-cli -g
+- bower install
+- npm install
+script:
+- echo "building $TRAVIS_COMMIT"
+- grunt release
+after_success:
+- tar -cvzf "dadleyy-$TRAVIS_COMMIT.tar.gz" ./public/
+- curl --ftp-create-dirs -T "dadleyy-$TRAVIS_COMMIT.tar.gz" -u $FTP_USER:$FTP_PASS
+  "ftp://ftp.sizethreestudios.com/artifacts/dadleyy/$TRAVIS_COMMIT.tar.gz"
+- curl --ftp-create-dirs -T "dadleyy-$TRAVIS_COMMIT.tar.gz" -u $FTP_USER:$FTP_PASS
+  "ftp://ftp.sizethreestudios.com/artifacts/dadleyy/latest.tar.gz"
+env:
+  global:
+  - secure: IrWdDYf7kTE+aCd/MgV9DYCbjlFwucG3Ss+NNIbBIlkz2eMhEsAMM0WM21CIcVNyHPy1fCgMKecHTIPS40DYpHODdI1VFgVnGDysQxSQr5sZRoIWZcDgfTqcNDgLyerUtk+V/Nyo53c3asCP7zvbYXr1LwtJ5CC0LYBEkiZO8bw=
+  - secure: kxKPsXI2FXR3GvuhMXG4pQ2cpzSTw+Ua9gwBxSlSTmSQ8aFwvjLQKRJBnMlPqPLlUO+E74mtYv0J7ANZYBak/kwVGrbGk4JdDW0sPzWZwSzYK+3lcvyHbJwtxNzQ3tmCfRodRwjvF5NoN4HYAzjHep/p+BNayRiFVochRSxla/E=
